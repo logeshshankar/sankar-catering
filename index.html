@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sankar Catering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: #fff8f0;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      margin: 0;
+    }
+    header .contact {
+      text-align: right;
+      font-size: 0.9em;
+    }
+    nav {
+      background: #e67e22;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 60px; /* Adjust based on header height */
+      z-index: 999;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hero {
+      position: relative;
+      height: 90vh;
+      background: url('/images/heroimg.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+      z-index: 1;
+    }
+    .hero h2, .hero a {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero a {
+      background: #e67e22;
+      padding: 10px 20px;
+      margin: 10px;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .menu, .services, .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .menu-item, .service-item {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .contact-form button {
+      background: #e67e22;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #e67e22;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero h2, .hero a {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .menu-toggle {
+  display: none;
+  background: #e67e22;
+  color: white;
+  border: none;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav {
+    display: none;
+    flex-direction: column;
+    background: #e67e22;
+  }
+  nav.active {
+    display: flex;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🍴 Sankar Catering</h1>
+  <div class="contact">
+    📞 (+91) 8015822991<br>
+    📞 (+91) 6379979507
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="mainNav">
+  <a href="#about">ABOUT US</a>
+  <a href="#services">SERVICES</a>
+  <a href="#gallery">GALLERY</a>
+  <a href="#order">ORDER</a>
+  <a href="#contact">CONTACT US</a>
+</nav>
+
+<section class="hero">
+  <h2>We look forward to being of service to you and your guests</h2>
+  <a href="#contact">Contact Us</a>
+  <a href="#order">Get Your Order</a>
+</section>
+
+<section id="about">
+  <h2>About Us</h2>
+  <p>Sankar Catering brings authentic South Indian flavors to your special events. From traditional vegetarian feasts to spicy non-veg delights, we serve weddings, corporate functions, and private parties with elegance and taste.</p>
+</section>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="service-item"><strong>Wedding Catering</strong><br>Traditional full-course meals for your big day</div>
+    <div class="service-item"><strong>Corporate Events</strong><br>Elegant buffets and plated service</div>
+    <div class="service-item"><strong>Private Parties</strong><br>Custom menus for birthdays and celebrations</div>
+  </div>
+</section>
+
+<section id="gallery">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="images/img1.jfif" alt="Thali">
+    <img src="images/img2.jfif" alt="Dosa">
+    <img src="images/img3.jfif" alt="Biriyani">
+    <img src="images/img4.jfif">
+    <img src="images/img5.jfif">
+  </div>
+</section>
+
+<section id="order">
+  <h2>Place Your Order</h2>
+  <p>Call us or WhatsApp at the numbers above to book your catering. We’ll help you customize your menu and service style to fit your event perfectly.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message"></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Sankar Catering. All rights reserved.
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.toggle('active');
+  }
+
+  // Auto-close menu when a nav link is clicked
+  document.querySelectorAll('#mainNav a').forEach(link => {
+    link.addEventListener('click', () => {
+      const nav = document.getElementById('mainNav');
+      nav.classList.remove('active');
+    });
+  });
+</script>
+
+
+</body>
+</html>
